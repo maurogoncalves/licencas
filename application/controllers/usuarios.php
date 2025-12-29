@@ -13,6 +13,7 @@ class Usuarios extends CI_Controller {
     $this->load->model('user','',TRUE);
    $this->load->library('session');
    $this->load->library('form_validation');
+   $this->load->library('Auxiliador');
    $this->load->helper('url');   $this->db->cache_on();
      session_start();
    
@@ -84,6 +85,14 @@ class Usuarios extends CI_Controller {
 	
 	$id = $this->input->get('id');
 	$data['usuarios'] = $this->user->listarUsuarios($idContratante,$id);
+	$retorno = $this->auxiliador->verificaID($id);
+
+	if($retorno){
+		redirect('usuarios/listar', 'refresh');
+	}
+	if($data['usuarios'] == false or is_null($data['usuarios'])){
+		redirect('usuarios/listar', 'refresh');
+	}
 	$this->load->view('header_pages_view',$data);
     $this->load->view('editar_usuarios_view', $data);
 	$this->load->view('footer_pages_view');
@@ -94,7 +103,7 @@ class Usuarios extends CI_Controller {
 	$id = $this->input->get('id');
 	
 	if($this->user->ativar($id)) {
-		$data['mensagem'] = 'Usuário foi ativado';
+		$data['mensagem'] = 'Usuï¿½rio foi ativado';
 	}else{	
 		$data['mensagem'] = 'Algum Erro Aconteceu';
 	}
@@ -108,7 +117,7 @@ class Usuarios extends CI_Controller {
 	$id = $this->input->get('id');
 	
 	if($this->user->excluir($id)) {
-		$data['mensagem'] = 'Usuário foi inativado';
+		$data['mensagem'] = 'Usuï¿½rio foi inativado';
 	}else{	
 		$data['mensagem'] = 'Algum Erro Aconteceu';
 	}
@@ -267,10 +276,10 @@ class Usuarios extends CI_Controller {
 		$dadosAlterados .= ' - Celular: '.$dadosAtuais[0]->celular;
 	}
 	if($dadosAtuais[0]->nome_resp <> $nomeResp){
-		$dadosAlterados .= ' - Nome Responsável: '.$dadosAtuais[0]->nome_resp;
+		$dadosAlterados .= ' - Nome Responsï¿½vel: '.$dadosAtuais[0]->nome_resp;
 	}
 	if($dadosAtuais[0]->email_resp <> $emailResp){
-		$dadosAlterados .= ' - Email Responsável: '.$dadosAtuais[0]->email_resp;
+		$dadosAlterados .= ' - Email Responsï¿½vel: '.$dadosAtuais[0]->email_resp;
 	}
 	$dadosLog = array(
 	'id_contratante' => $idContratante,
@@ -307,7 +316,7 @@ class Usuarios extends CI_Controller {
 	$retorno = '';
 	if($result == 0){
 		$retorno .="<tr>";
-		$retorno .="<td class='hidden-phone' colspan='6'> Não Há Dados </td>";
+		$retorno .="<td class='hidden-phone' colspan='6'> Nï¿½o Hï¿½ Dados </td>";
 
 		$retorno .="</tr>";
 	}else{
@@ -361,15 +370,15 @@ class Usuarios extends CI_Controller {
 		$test="<table border=1>
 		<tr>
 		<td>Id</td>
-		<td>Razão Social</td>
+		<td>Razï¿½o Social</td>
 		<td>Nome Fantasia</td>
 		<td>Tipo de Emitente</td>
 		<td>Tipo</td>
 		<td>Documento</td>
 		<td>Telefone</td>
 		<td>Celular</td>
-		<td>Responsável</td>
-		<td>Email Responsável</td>
+		<td>Responsï¿½vel</td>
+		<td>Email Responsï¿½vel</td>
 		<td>Ativo</td>
 		<td>Alterado Por </td>
 		<td>Data Altera&ccedil;&atilde;o </td>
@@ -383,9 +392,9 @@ class Usuarios extends CI_Controller {
 			$dadosLog = $this->log_model->listarLog($emitente->id,'emitente');				
 		    $isArrayLog =  is_array($dadosLog) ? '1' : '0';	
 			if($emitente->tipo_pessoa == 1){
-				$tipoPessoa='Pessoa Física';
+				$tipoPessoa='Pessoa Fï¿½sica';
 			}else{
-				$tipoPessoa='Pessoa Jurídica';
+				$tipoPessoa='Pessoa Jurï¿½dica';
 			}
 			if($emitente->ativo == 1){
 				$ativo='Ativo';

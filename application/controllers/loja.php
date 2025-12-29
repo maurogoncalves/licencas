@@ -15,6 +15,7 @@ class Loja extends CI_Controller {
    $this->load->model('loja_model','',TRUE);
    $this->load->library('session');
    $this->load->library('form_validation');
+   $this->load->library('Auxiliador');
    $this->load->helper('url');
    //$this->db->cache_on();
     session_start();
@@ -69,7 +70,7 @@ class Loja extends CI_Controller {
 	$observacoes = $this->input->post('observacoes');	
 	
 	if($tipo_licenca == 0){
-		echo "<script>alert('Escolha um tipo de licença'); window.history.go(-1);</script>";
+		echo "<script>alert('Escolha um tipo de licenï¿½a'); window.history.go(-1);</script>";
 		exit;
 	}
 	
@@ -153,7 +154,7 @@ class Loja extends CI_Controller {
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha</option>";
@@ -183,7 +184,7 @@ class Loja extends CI_Controller {
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha</option>";
@@ -209,7 +210,7 @@ class Loja extends CI_Controller {
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha uma Loja</option>";
@@ -242,7 +243,7 @@ class Loja extends CI_Controller {
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha</option>";
@@ -272,7 +273,7 @@ class Loja extends CI_Controller {
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha</option>";
@@ -309,7 +310,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
 		$retorno .="<tr>";
-		$retorno .="<td class='hidden-phone' colspan='5'> Não Há Dados </td>";
+		$retorno .="<td class='hidden-phone' colspan='5'> Nï¿½o Hï¿½ Dados </td>";
 		$retorno .="</tr>";
 	}else{
 		foreach($result as $imovel){ 
@@ -383,7 +384,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
 		$retorno .="<tr>";
-		$retorno .="<td class='hidden-phone' colspan='5'> Não Há Dados </td>";
+		$retorno .="<td class='hidden-phone' colspan='5'> Nï¿½o Hï¿½ Dados </td>";
 		$retorno .="</tr>";
 	}else{
 		foreach($result as $imovel){ 
@@ -450,7 +451,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
 		$retorno .="<tr>";
-		$retorno .="<td class='hidden-phone' colspan='5'> Não Há Dados </td>";
+		$retorno .="<td class='hidden-phone' colspan='5'> Nï¿½o Hï¿½ Dados </td>";
 		$retorno .="</tr>";
 	}else{
 		foreach($result as $imovel){ 
@@ -523,7 +524,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
 		$retorno .="<tr>";
-		$retorno .="<td class='hidden-phone' colspan='5'> Não Há Dados </td>";
+		$retorno .="<td class='hidden-phone' colspan='5'> Nï¿½o Hï¿½ Dados </td>";
 		$retorno .="</tr>";
 	}else{
 		foreach($result as $imovel){ 
@@ -595,7 +596,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
 		$retorno .="<tr>";
-		$retorno .="<td class='hidden-phone' colspan='5'> Não Há Dados </td>";
+		$retorno .="<td class='hidden-phone' colspan='5'> Nï¿½o Hï¿½ Dados </td>";
 		$retorno .="</tr>";
 	}else{
 		foreach($result as $imovel){ 
@@ -663,7 +664,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha uma Loja</option>";
@@ -694,7 +695,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha uma Cidade</option>";
@@ -724,7 +725,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha uma Loja</option>";
@@ -754,7 +755,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha uma Loja</option>";
@@ -784,7 +785,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha uma Cidade</option>";
@@ -814,7 +815,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha uma Cidade</option>";
@@ -844,7 +845,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$isArray =  is_array($result) ? '1' : '0';
 	
 	if($isArray == 0){
-		$retorno .="<option value='0'>Não Há Dados</option>";
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";
 	}else{
 	
 		$retorno .="<option value=0>Escolha uma Cidade</option>";
@@ -868,7 +869,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$result = $this->loja_model->buscaImovel($id);	
 	$isArray =  is_array($result) ? '1' : '0';	
 	if($isArray == 0){		
-		$retorno .="<option value='0'>Não Há Dados</option>";	
+		$retorno .="<option value='0'>Nï¿½o Hï¿½ Dados</option>";	
 	}else{			
 		foreach($result as $key => $imovel){ 			 			
 		$retorno .="<option value='".$imovel->id."'>".$imovel->nome."</option>";		 		
@@ -1165,11 +1166,11 @@ $isArray =  is_array($result) ? '1' : '0';
 	
 	
 	if($dadosAtuais[0]->id_emitente <> $emitente){
-		$dadosAlterados .= ' - Razão Social: '.$dadosEmitente[0]->razao_social;	
+		$dadosAlterados .= ' - Razï¿½o Social: '.$dadosEmitente[0]->razao_social;	
 	}
 	
 	if($dadosAtuais[0]->id_imovel <> $id_imovel){
-		$dadosAlterados .= ' - Imóvel: '.$dadosImovel[0]->nome;	
+		$dadosAlterados .= ' - Imï¿½vel: '.$dadosImovel[0]->nome;	
 	}
 	
 	
@@ -1181,7 +1182,7 @@ $isArray =  is_array($result) ? '1' : '0';
 		$dadosAlterados .= ' - Cod2: '.$dadosAtuais[0]->cod2;	
 	}
 	
-	if($dadosAtuais[0]->bandeira <> $bandeira){		if(empty($dadosBandeira[0]->descricao_bandeira)){			$dadosAlterados .= ' - Bandeira: '.utf8_decode('Sem Descrição');		
+	if($dadosAtuais[0]->bandeira <> $bandeira){		if(empty($dadosBandeira[0]->descricao_bandeira)){			$dadosAlterados .= ' - Bandeira: '.utf8_decode('Sem Descriï¿½ï¿½o');		
 					}else{			$dadosAlterados .= ' - Bandeira: '.utf8_decode($dadosBandeira[0]->descricao_bandeira);			}	
 	}
 	
@@ -1198,7 +1199,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	}
 	
 	if($dadosAtuais[0]->numero <> $numero){
-		$dadosAlterados .= ' - Número: '.$dadosAtuais[0]->numero;	
+		$dadosAlterados .= ' - Nï¿½mero: '.$dadosAtuais[0]->numero;	
 	}
 
 	$dadosLog = array(
@@ -1256,7 +1257,7 @@ $isArray =  is_array($result) ? '1' : '0';
 	$data['regionais'] = $this->loja_model->listarRegional();
 	$session_data = $_SESSION['loginTeste'];
 	$idContratante = $session_data['id_contratante'];
-	
+	$retorno = $this->auxiliador->verificaID($id);
 	$data['emitentes'] = $this->loja_model->listarTodosEmitentes($idContratante);
 	$data['estados'] = $this->loja_model->buscaEstado($idContratante);
 	$data['cidades'] = $this->loja_model->buscaCidades($idContratante);
@@ -1264,6 +1265,12 @@ $isArray =  is_array($result) ? '1' : '0';
 
 	$result = $this->loja_model->listarLojaById($id);
 
+	if($retorno){
+		redirect('loja/listar', 'refresh');
+	}
+	if($result == false or is_null($result)){
+		redirect('loja/listar', 'refresh');
+	}
 	if(!empty($result[0]->cidade)){
 		$_SESSION["cidadeLojaBD"] = $result[0]->cidade;
 	}else{
@@ -1327,13 +1334,13 @@ $isArray =  is_array($result) ? '1' : '0';
 		$test="<table border=1>
 		<tr>
 		<td>Id</td>
-		<td>Razão Social</td>
+		<td>Razï¿½o Social</td>
 		<td>CPF/CNPJ</td>
 		<td>Inscri&ccedil;&atilde;o Mobili&aacute;ria</td>
 		<td>Inscri&ccedil;&atilde;o Estadual</td>
 		<td>Regional</td>
-		<td>Cód 1</td>
-		<td>Cód 2</td>
+		<td>Cï¿½d 1</td>
+		<td>Cï¿½d 2</td>
 		<td>Centro de Custo</td>
 		<td>Bandeira</td>
 		<td>Tipo de Emitente</td>
@@ -1354,7 +1361,7 @@ $isArray =  is_array($result) ? '1' : '0';
 		if($isArray == 0){
 			$test="
 			<tr>
-			<td>Não Há Dados para exibi&ccedil;&atilde;o</td>		
+			<td>Nï¿½o Hï¿½ Dados para exibi&ccedil;&atilde;o</td>		
 			</tr>
 			";
 		}else{			
@@ -1494,7 +1501,7 @@ function listar_status(){
 				if($cnd_est['possui_cnd'] == 1){
 					$arrCNDEst[$j]['possui_cnd_est'] ='Sim';
 				}elseif($cnd_est['possui_cnd'] == 2){
-					$arrCNDEst[$j]['possui_cnd_est'] ='Não';
+					$arrCNDEst[$j]['possui_cnd_est'] ='Nï¿½o';
 				}else{
 					$arrCNDEst[$j]['possui_cnd_est'] ='Pend&ecirc;ncia';
 				}
@@ -1595,7 +1602,7 @@ function listar_status(){
 				if($cnd_est['possui_cnd'] == 1){
 					$arrCNDEst[$j]['possui_cnd_est'] ='Sim';
 				}elseif($cnd_est['possui_cnd'] == 2){
-					$arrCNDEst[$j]['possui_cnd_est'] ='Não';
+					$arrCNDEst[$j]['possui_cnd_est'] ='Nï¿½o';
 				}else{
 					$arrCNDEst[$j]['possui_cnd_est'] ='Pend&ecirc;ncia';
 				}
@@ -1794,11 +1801,11 @@ function listar_status(){
 	if (strlen($cnpj) != 14)
 		return false;
 
-	// Verifica se todos os digitos são iguais
+	// Verifica se todos os digitos sï¿½o iguais
 	if (preg_match('/(\d)\1{13}/', $cnpj))
 		return false;	
 
-	// Valida primeiro dígito verificador
+	// Valida primeiro dï¿½gito verificador
 	for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++)
 	{
 		$soma += $cnpj[$i] * $j;
@@ -1810,7 +1817,7 @@ function listar_status(){
 	if ($cnpj[12] != ($resto < 2 ? 0 : 11 - $resto))
 		return false;
 
-	// Valida segundo dígito verificador
+	// Valida segundo dï¿½gito verificador
 	for ($i = 0, $j = 6, $soma = 0; $i < 13; $i++)
 	{
 		$soma += $cnpj[$i] * $j;

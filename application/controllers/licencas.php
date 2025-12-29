@@ -21,6 +21,7 @@ class Licencas extends CI_Controller {
     $this->load->library('Cep');
     $this->load->library('session');   
     $this->load->library('form_validation');
+	$this->load->library('Auxiliador');
     $this->load->helper('url');
 	$this->load->helper('pdf_helper');
 	$this->load->helper('general_helper');
@@ -5372,18 +5373,39 @@ function visao_interna_cnd_est(){
 	}else{
 		$idTratativa = $_SESSION['idTratativa'];
 	}
-	
 
-	
+
+	$referer = $_SERVER['HTTP_REFERER'] ?? '';
+
+	if (isset($_SERVER['HTTP_REFERER'])) {
+		$_SESSION['referer_guardado'] = $_SERVER['HTTP_REFERER'];
+	}
+
+	$path = parse_url($_SESSION['referer_guardado'], PHP_URL_PATH);
+	$segments = explode('/', trim($path, '/'));
+	$last = end($segments);	
+
 	$data['idTratativa'] = $idTratativa;
 	$id = $this->input->get('id');
 	$session_data = $_SESSION['loginTeste'];
 	$data['email'] = $session_data['email'];
 	$data['empresa'] = $session_data['empresa'];
 	$data['perfil'] = $session_data['perfil'];
-	
+	$retorno = $this->auxiliador->verificaID($id);
 	$idContratante = $session_data['id_contratante'];
-	
+	$data['usuarios']  = $this->user->dadosUsuarios();	
+
+
+	if($retorno == true and $last == 'mapa'){
+		redirect('home/mapa', 'refresh');
+	}elseif($retorno == true and $last == 'mapa_taxas'){
+		redirect('home/mapa_taxas', 'refresh');
+	}
+	if($data['usuarios'] == false or is_null($data['usuarios']) and $last == 'mapa'){
+		redirect('home/mapa', 'refresh');
+	}elseif($data['usuarios'] == false or is_null($data['usuarios']) and $last == 'mapa_taxas'){
+		redirect('home/mapa_taxas', 'refresh');
+	}	
 	$data['obs'] = $this->cnd_mobiliaria_model->buscaTodasObservacoes($id,1);	
 
 	$data['imovel'] = $this->cnd_mobiliaria_model->listarInscricaoByLoja($id);	
@@ -5408,8 +5430,6 @@ function visao_interna_cnd_est(){
 	$data['empresa'] = $session_data['empresa'];
 	$data['nome_modulo'] = 'Cnd Mobiliária';	
 	$data['modulo'] = '1';	
-	
-	$data['usuarios']  = $this->user->dadosUsuarios();
 	
 	if(empty($session_data['visitante'])){
 		$data['visitante'] = 0;
