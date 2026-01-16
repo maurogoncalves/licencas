@@ -23,6 +23,29 @@
   float: left;
   border-bottom-width: 0;
 }
+#loader_img {
+    width: 120px;   /* ajuste aqui */
+    height: 120px;  /* opcional */
+}
+
+#loading_cnds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    display: none;
+}
+
+#loading_cnds img {
+    width: 140px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 </style>
 
 <script type="text/javascript">
@@ -271,7 +294,10 @@ $(document).ready(function(){
 				url: "<?php echo $this->config->base_url(); ?>index.php/licencas/listarTratativaMobById?id="+idTrat,					
 				type : 'GET', /* Tipo da requisição */ 				
 				contentType: "application/json; charset=utf-8",	        	
-				dataType: 'json', /* Tipo de transmissão */				
+				dataType: 'json', /* Tipo de transmissão */	
+				beforeSend: function () {
+				$('#loading_cnds').show(); // 🔄 mostra loader
+				},								
 				success: function(data){
 						$('#id_tratativa').val(data.id);
 						$('#tipo_tratativa').val(data.tipo_tratativa);
@@ -344,7 +370,15 @@ $(document).ready(function(){
 						}, 2000);
 	
 							
-				}			 
+				},
+				complete: function () {
+				$('#loading_cnds').hide(); // ✅ esconde loader
+				},
+
+				error: function (xhr) {
+				console.log(xhr.responseText);
+				alert('Erro ao carregar a tratativa');
+				}
 	});	
 	
 		// $.ajax({	
@@ -380,7 +414,10 @@ $(document).ready(function(){
 				url: "<?php echo $this->config->base_url(); ?>index.php/licencas/listarTratativaMobById?id="+idTrat,					
 				type : 'GET', /* Tipo da requisição */ 				
 				contentType: "application/json; charset=utf-8",	        	
-				dataType: 'json', /* Tipo de transmissão */				
+				dataType: 'json', /* Tipo de transmissão */	
+				beforeSend: function () {
+				$('#loading_cnds').show(); // 🔄 mostra loader
+				},
 				success: function(data){
 						$('#id_tratativa_taxa').val(data.id);
 						$('#tipo_tratativa').val(data.tipo_tratativa);
@@ -458,7 +495,15 @@ $(document).ready(function(){
 						}, 2000);
 	
 							
-				}			 
+				},
+				complete: function () {
+				$('#loading_cnds').hide(); // ✅ esconde loader
+				},
+
+				error: function (xhr) {
+				console.log(xhr.responseText);
+				alert('Erro ao carregar a tratativa');
+				}	
 	});	
 	
 		// $.ajax({	
@@ -854,4 +899,7 @@ $(document).ready(function(){
 					</div>
 
 				  </div>
+				</div>
+				<div id="loading_cnds" style="display:none; margin:10px 0;">
+				  <img src="<?php echo $this->config->base_url(); ?>assets/images/loader.gif" id="loader_img">
 				</div>
